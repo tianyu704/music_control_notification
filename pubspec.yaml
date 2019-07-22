@@ -1,8 +1,8 @@
 name: music_control_notification
-description: 通知栏音乐控制
+description: Android通知栏音乐控制
 version: 0.0.1
-author:
-homepage:
+author: tianyu704 <839629712@qq.com>
+homepage: https://github.com/tianyu704/music_control_notification
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
