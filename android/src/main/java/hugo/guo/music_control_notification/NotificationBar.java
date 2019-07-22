@@ -34,7 +34,7 @@ public class NotificationBar {
 
         remoteView = new RemoteViews(parent.getPackageName(), R.layout.notification_bar);
 
-        remoteView.setTextViewText(R.id.title, title);
+        remoteView.setTextViewText(R.id.text_name, title);
 //        remoteView.setTextViewText(R.id.author, author);
 
         if (this.play) {

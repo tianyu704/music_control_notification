@@ -34,8 +34,10 @@ public class NotificationReceiver extends BroadcastReceiver {
                 context.startActivity(launchIntent);
 
                 MusicControlNotificationPlugin.callEvent("select");
+                break;
             case "close":
                 MusicControlNotificationPlugin.callEvent("close");
+                break;
         }
     }
 }
