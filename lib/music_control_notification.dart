@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,19 +20,25 @@ class MusicControlNotification {
   }
 
   static Future show({@required title, play = true}) async {
-    final Map<String, dynamic> params = <String, dynamic>{
-      'title': title,
-      'play': play
-    };
-    await _channel.invokeMethod('show', params);
-    _channel.setMethodCallHandler(_myUtilsHandler);
+    if (Platform.isAndroid) {
+      final Map<String, dynamic> params = <String, dynamic>{
+        'title': title,
+        'play': play
+      };
+      await _channel.invokeMethod('show', params);
+      _channel.setMethodCallHandler(_myUtilsHandler);
+    }
   }
 
   static Future hide() async {
-    await _channel.invokeMethod('hide');
+    if (Platform.isAndroid) {
+      await _channel.invokeMethod('hide');
+    }
   }
 
   static setListener(String event, Function callback) {
-    _listeners.addAll({event: callback});
+    if (Platform.isAndroid) {
+      _listeners.addAll({event: callback});
+    }
   }
 }
